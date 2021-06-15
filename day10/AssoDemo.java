@@ -21,7 +21,7 @@ public class AssoDemo {
 
 class Laddu {
 	int size;
-	public void setSize(int s) { 
-		size = s;
+	public void setSize(int size) { // local variables takes precedence over global variables
+		this.size = size;
 	}
 }
