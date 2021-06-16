@@ -1,3 +1,4 @@
+
 package hit.day12;
 /*
  * bad - code which is open for modification and closed for extension - bad brush
@@ -49,8 +50,14 @@ class BadPaintBrush { // in this paint brush the code gets modified whenever a n
 		}
 	}
 }
-
-class Paint {
+/*
+ * 100% the parent class should be declared abstract
+ * Abstract class is a special class used to represent the parent class, its a classifier class
+ * it provided a overview of the hierarchy which you create by extending this class..
+ * You cannot create an object of this class
+ * There is no compulsion to have any code inside the abstract class
+ */
+abstract class Paint {
 	
 }
 
