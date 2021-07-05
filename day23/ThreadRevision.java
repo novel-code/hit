@@ -20,7 +20,8 @@ public class ThreadRevision {
 		for (int i = 0; i < 5; i ++) {
 			System.out.println(i);
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1000); // child thread will not get called if the main thread doesn't get interrupted
+			// interruption can also happen with sopl
 			} catch (Exception e) {
 				
 			}

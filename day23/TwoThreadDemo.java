@@ -5,9 +5,10 @@ public class TwoThreadDemo {
 		Thread taqi=new Thread(new TicketBooking(central, 1000),"taqi");
 		Thread imran=new Thread(new TicketBooking(central,500),"imran");
 		
-		taqi.start();
+		taqi.start(); //will not get called immediately but go into semafore (waiting state)
 		imran.start();
-	}
+	}// no more code in main execution so
+	// round robin fashion any thread can come out 
 }
 class TicketBooking implements Runnable{
 	ReservationCounter central;int amt;

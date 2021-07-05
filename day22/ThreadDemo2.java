@@ -7,8 +7,8 @@ public class ThreadDemo2 {
 		t.setName("shoiab");
 		System.out.println(new Date());
 		System.out.println("Before comming to class....");
-		Thread kala=new Thread(new JobToKala(vc),"kala");
-		kala.start();
+		Thread kala=new Thread(new JobToKala(vc),"kala"); // this is how you assign a job to a thread (kala)
+		kala.start(); // I will not do vc.getToken(); but kala will do..
 		//vc.getToken();
 		System.out.println("Take class.....for 7-9 Golden Batch...."+new Date());
 	}	
@@ -19,7 +19,7 @@ class JobToKala implements Runnable{
 		this.vc=vc;
 	}
 @Override
-	public void run() {
+	public void run() { // run() method is compulsory coz this class implements Runnable
 		System.out.println("The job given to kala is executed from this method...");
 		try{
 			vc.getToken();
