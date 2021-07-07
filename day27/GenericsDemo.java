@@ -3,15 +3,22 @@ package hit.day27;
 public class GenericsDemo {
 	public static void main(String[] args) {
 		Paint paint = new RedPaint();
-		GoodPaintBrush brush = new GoodPaintBrush();
+
 		 
 		Powder powder = new RosePowder();
 		
+		GoodPaintBrush<Paint> brush = new GoodPaintBrush<>();
 		
+		brush.setObj(paint);
 		
-		brush.obj = powder;
+		Paint mypaint = brush.getObj();
+		mypaint.color();
 		
-		brush.execute();
+		GoodPaintBrush<Powder> brush2 = new GoodPaintBrush<>();
+		brush2.setObj(new RosePowder());
+		
+		Powder myPowder = brush2.getObj();
+		myPowder.doMakeup();
 		
 	}
 }
@@ -55,8 +62,17 @@ class RosePowder extends Powder {
 	}
 	
 }
+class GoodPaintBrush<T> {
+	T obj;
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+	public T getObj() {
+		return this.obj;
+	}
+}
 
-class GoodPaintBrush { // i have made my paint brush generic
+class BadPaintBrush3 { // i have made my paint brush generic
 	Object obj; // by declaring a object reference u can consume any object
 	public void execute() {
 		if (obj instanceof Paint) {
