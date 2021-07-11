@@ -1,5 +1,6 @@
 package hit.day28;
 
+import java.util.Comparator;
 import java.util.HashSet; // there is no arangement (use hashset if there are many additions
 // continuously) coz there wont be any reshuffels (like garbage dump)
 import java.util.Iterator;
@@ -15,7 +16,7 @@ import java.util.TreeSet; // for sorting 1. goes ahead with index.. making sure 
 public class ColDemo4 {
 	public static void main(String[] args) {
 //		Set<String> set = new HashSet<>();
-		Set<String> set = new TreeSet<>(); // sorting
+		Set<String> set = new TreeSet<>(new MyComparator()); // sorting
 
 		set.add("hello");
 		set.add("hai");
@@ -38,5 +39,13 @@ public class ColDemo4 {
 			System.out.println(s);
 		}
 		
+	}
+}
+
+class MyComparator implements Comparator<String> {
+	@Override
+	public int compare(String o1, String o2) {
+		
+		return o1.compareTo(o2);
 	}
 }
